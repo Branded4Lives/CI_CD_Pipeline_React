@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-labelledby="title desc">
+  <title id="title">Everyday Daypack</title>
+  <desc id="desc">Product illustration of a daypack backpack.</desc>
+  <rect width="600" height="420" fill="#f1f5f9"/>
+  <circle cx="300" cy="210" r="140" fill="#dbeafe"/>
+  <path d="M220 168c0-54 34-92 80-92s80 38 80 92v142c0 28-22 50-50 50h-60c-28 0-50-22-50-50V168Z" fill="#2563eb" stroke="#1e3a8a" stroke-width="10"/>
+  <path d="M248 194h104v82H248z" fill="#ffffff" stroke="#1e3a8a" stroke-width="10" rx="16"/>
+  <path d="M250 164h100M252 302h96" stroke="#bfdbfe" stroke-width="12" stroke-linecap="round"/>
+  <path d="M220 198c-28 12-42 42-36 86M380 198c28 12 42 42 36 86" fill="none" stroke="#1e3a8a" stroke-width="10" stroke-linecap="round"/>
+  <text x="300" y="374" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="30" font-weight="700">Everyday Daypack</text>
+</svg>

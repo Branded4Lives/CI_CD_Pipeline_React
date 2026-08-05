@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-labelledby="title desc">
+  <title id="title">Trail Runner Shoes</title>
+  <desc id="desc">Product illustration of trail running shoes.</desc>
+  <rect width="600" height="420" fill="#eef6f5"/>
+  <circle cx="300" cy="210" r="138" fill="#d1e7e4"/>
+  <path d="M154 270c64 10 136 8 216-6 34-6 58-20 76-42l24 56c-26 24-68 40-126 48-76 10-142 10-198 0-18-4-28-20-22-36 4-12 16-22 30-20Z" fill="#0f766e" stroke="#115e59" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M208 224c42-32 96-58 158-74l56 72c-84 22-154 36-214 42v-40Z" fill="#ffffff" stroke="#115e59" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M248 226l26 30M300 204l28 34M352 184l30 36" stroke="#0f766e" stroke-width="10" stroke-linecap="round"/>
+  <text x="300" y="374" text-anchor="middle" fill="#111827" font-family="Arial, sans-serif" font-size="30" font-weight="700">Trail Runner Shoes</text>
+</svg>
