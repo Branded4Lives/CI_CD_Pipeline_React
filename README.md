@@ -105,7 +105,7 @@ Do not commit real secret values to source code or workflow files.
 
 ## Live Vercel URL
 
-Deployment URL placeholder:
+Live production URL:
 
 ```text
 https://ci-cd-pipeline-react.vercel.app

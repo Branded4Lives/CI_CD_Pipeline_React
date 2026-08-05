@@ -15,8 +15,9 @@ Have these ready:
 - VS Code opened at the `CI_CD_Pipeline_React` project root.
 - A terminal opened in the same project root.
 - The app running in the browser from `npm run dev`, usually at `http://localhost:5173/`.
-- GitHub open to the repository if you want to show the workflow after pushing.
-- Vercel open only if you already completed deployment.
+- GitHub open to `https://github.com/Branded4Lives/CI_CD_Pipeline_React`.
+- GitHub Actions open to the latest successful `React CI/CD Pipeline` run.
+- Vercel open to the live app at `https://ci-cd-pipeline-react.vercel.app`.
 
 ## 1. Introduction
 
@@ -37,6 +38,8 @@ Say:
 The app is called Trail Supply Co. It displays a product catalog with sample outdoor products. Users can add products to the cart, see the cart item count update, view item quantities, see the total price, and clear the cart.
 
 The project uses React, Vite, Jest, React Testing Library, GitHub Actions, npm, and the Vercel CLI.
+
+The existing app structure is preserved. The cart is managed with local React state, and the product data is stored locally, so there are no live API calls or external services required for the tests.
 
 ## 3. App Demonstration
 
@@ -85,6 +88,8 @@ Where to be on screen: Open `src/App.test.jsx`.
 Say:
 
 This is the integration test. It renders the product list and cart together through the main App component, clicks an `Add to Cart` button, and verifies that the cart updates with the product name, cart count, and total.
+
+Because the product data is local, this integration test does not depend on a live network request.
 
 ## 5. Running Tests And Build
 
@@ -150,6 +155,12 @@ Say:
 
 The deploy job installs the Vercel CLI, pulls the production Vercel configuration, builds the Vercel production artifact, and deploys the prebuilt output.
 
+Where to be on screen: Switch to the GitHub Actions page for the latest workflow run.
+
+Say:
+
+Here is the latest GitHub Actions run. The build job passed first, the test job passed second, and the deploy job passed after both of them. This confirms that the app was only deployed after a successful build and test run.
+
 ## 7. Secrets And Deployment
 
 Where to be on screen: In `README.md`, show the Required GitHub/Vercel Secrets section. You can also show GitHub repository Settings, then Secrets and variables, then Actions, but do not reveal secret values.
@@ -162,15 +173,13 @@ Where to be on screen: Show the Live Vercel URL section in `README.md`.
 
 Say:
 
-The README includes a placeholder for the live Vercel URL. I will only replace it after the deployment actually succeeds.
+The README includes the live Vercel URL because deployment has completed successfully.
 
-If deployment is already complete, switch to the live Vercel app and say:
+Where to be on screen: Switch to `https://ci-cd-pipeline-react.vercel.app`.
 
-This is the deployed Vercel version of the application.
+Say:
 
-If deployment is not complete yet, say:
-
-I am not claiming a successful deployment yet. The workflow is configured for Vercel deployment, and the repository secrets must be added in GitHub before the deploy job can complete.
+This is the deployed Vercel version of the application at `https://ci-cd-pipeline-react.vercel.app`.
 
 ## 8. Closing
 
@@ -199,4 +208,5 @@ Thank you for watching my project presentation.
 - Point out `needs: build` in the test job.
 - Point out `needs: test` in the deploy job.
 - Show the required secret names without showing real secret values.
-- Show the Vercel URL only if deployment has actually succeeded.
+- Show the latest successful GitHub Actions run.
+- Show the deployed Vercel URL: `https://ci-cd-pipeline-react.vercel.app`.
