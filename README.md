@@ -108,7 +108,7 @@ Do not commit real secret values to source code or workflow files.
 Deployment URL placeholder:
 
 ```text
-https://ci-cd-pipeline-react-e56mfsexj-brandon-m-projects.vercel.app/
+https://ci-cd-pipeline-react.vercel.app
 ```
 
 This URL was added after the Vercel deployment completed successfully.
