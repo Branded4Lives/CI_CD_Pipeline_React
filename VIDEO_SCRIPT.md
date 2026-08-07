@@ -1,6 +1,8 @@
-# Video Presentation Script
+# Short Video Presentation Script
 
-Target length: 3 to 4 minutes. The assignment requires the video to be under 5 minutes and uploaded directly to Disco. Keep your face visible on camera while sharing your screen.
+Target length: 3 to 4 minutes. Hard cap: under 5 minutes. Spoken narration is about 2 minutes; the rest is screen movement and command output. Keep your face visible on camera while sharing your screen.
+
+Main rule: do not read long explanations. Show the evidence on screen, say the short line, then move on.
 
 ## Before Recording
 
@@ -10,98 +12,76 @@ Be in this project folder before you start:
 C:\Users\bmcga\OneDrive\Desktop\CI_CD_Pipeline_React
 ```
 
-Have these ready:
+Have these ready in separate tabs:
 
 - VS Code opened at the `CI_CD_Pipeline_React` project root.
 - A terminal opened in the same project root.
-- The app running in the browser from `npm run dev`, usually at `http://localhost:5173/`.
+- The local app running from `npm run dev`, usually at `http://localhost:5173/`.
 - GitHub open to `https://github.com/Branded4Lives/CI_CD_Pipeline_React`.
 - GitHub Actions open to the latest successful `React CI/CD Pipeline` run.
 - Vercel open to the live app at `https://ci-cd-pipeline-react.vercel.app`.
 
-## 1. Introduction
+Optional time saver: run `npm test` and `npm run build` once before recording, then clear the terminal and run them again during the video. While commands run, stay quiet instead of filling the wait with extra explanation.
 
-Where to be on screen: Show VS Code with the project root folder `CI_CD_Pipeline_React` visible in the Explorer.
+## 1. Introduction And Project Overview
 
-Say:
+Time target: 20 seconds.
 
-Hi, my name is [Your Name], and this is my CI/CD Pipeline React E-Commerce App.
-
-This project is a small React storefront built to demonstrate testing, production builds, and automated deployment through GitHub Actions and Vercel.
-
-## 2. Project Overview
-
-Where to be on screen: Open `README.md` and show the Project Overview, Main Features, and Technologies Used sections.
+Where to be on screen: Show VS Code with the project root visible, then briefly open `README.md`.
 
 Say:
 
-The app is called Trail Supply Co. It displays a product catalog with sample outdoor products. Users can add products to the cart, see the cart item count update, view item quantities, see the total price, and clear the cart.
+Hi, my name is Brandon, and this is my CI/CD Pipeline React E-Commerce App.
 
-The project uses React, Vite, Jest, React Testing Library, GitHub Actions, npm, and the Vercel CLI.
+This is a React and Vite storefront called Trail Supply Co. It demonstrates a product catalog, cart updates, local testing, production builds, and automated deployment with GitHub Actions and Vercel.
 
-The existing app structure is preserved. The cart is managed with local React state, and the product data is stored locally, so there are no live API calls or external services required for the tests.
+The main tools are React, Vite, Jest, React Testing Library, GitHub Actions, npm, and Vercel.
 
-## 3. App Demonstration
+## 2. App Demonstration
 
-Where to be on screen: Switch to the browser running the local app at `http://localhost:5173/`.
+Time target: 25 seconds.
 
-Say:
-
-Here is the app running locally. The product catalog is on the page, and the shopping cart is shown beside it.
-
-Now I will click an `Add to Cart` button.
-
-Action: Click `Add to Cart` on the first product.
+Where to be on screen: Switch to the local app at `http://localhost:5173/`.
 
 Say:
 
-After clicking, the cart updates immediately. The selected product appears in the cart, the item count increases, and the total price updates.
+Here is the app running locally. It shows the product catalog and shopping cart.
 
-Action: Click `Add to Cart` on the same product again if you want to show the quantity increasing.
-
-Say:
-
-Clicking the same product again increases the quantity instead of creating a duplicate cart row.
-
-## 4. Test Setup
-
-Where to be on screen: Switch back to VS Code and open `package.json`.
+Action: Click `Add to Cart` on one product.
 
 Say:
 
-The project uses the existing npm setup. In `package.json`, the test command is `jest --watchAll=false`, which means tests run once and exit. That is important for CI because the workflow cannot get stuck in watch mode, and the command will fail properly if a test fails.
+The cart updates immediately with the item, quantity, count, and total.
 
-Where to be on screen: Open `src/components/ProductCard.test.jsx`.
-
-Say:
-
-This unit test checks that the product card renders real product details and verifies user behavior by clicking the `Add to Cart` button and confirming the handler receives the selected product.
-
-Where to be on screen: Open `src/components/Cart.test.jsx`.
+Action: Click the same product again.
 
 Say:
 
-This second unit test covers the cart component. It checks the empty cart state, item count, calculated total, and the clear cart button interaction.
+Clicking the same product increases the quantity instead of adding a duplicate row.
 
-Where to be on screen: Open `src/App.test.jsx`.
+## 3. Tests
 
-Say:
+Time target: 30 seconds.
 
-This is the integration test. It renders the product list and cart together through the main App component, clicks an `Add to Cart` button, and verifies that the cart updates with the product name, cart count, and total.
-
-Because the product data is local, this integration test does not depend on a live network request.
-
-## 5. Running Tests And Build
-
-Where to be on screen: Use the terminal at the project root:
-
-```text
-C:\Users\bmcga\OneDrive\Desktop\CI_CD_Pipeline_React
-```
+Where to be on screen: Open `package.json`, then quickly show `ProductCard.test.jsx`, `Cart.test.jsx`, and `App.test.jsx`.
 
 Say:
 
-Now I will run the full test suite.
+In `package.json`, the test script is `jest --watchAll=false`, so CI runs the tests once and exits.
+
+The tests cover product card rendering and click behavior, cart totals and clearing, and the full app flow where adding a product updates the cart.
+
+Because the product data is local, the tests do not depend on a live API.
+
+## 4. Local Test And Build
+
+Time target: 45 to 60 seconds.
+
+Where to be on screen: Use the terminal at the project root.
+
+Say:
+
+Now I will run the test suite.
 
 Action: Run:
 
@@ -111,7 +91,7 @@ npm test
 
 Say after it passes:
 
-All test suites pass locally.
+All tests pass locally.
 
 Action: Run:
 
@@ -121,92 +101,80 @@ npm run build
 
 Say after it passes:
 
-The production build also succeeds, and Vite creates the optimized output in the `dist` folder.
+The production build also passes and creates the optimized `dist` output.
 
-## 6. GitHub Actions Workflow
+## 5. GitHub Actions Pipeline
+
+Time target: 35 seconds.
 
 Where to be on screen: Open `.github/workflows/main.yml`.
 
 Say:
 
-The GitHub Actions workflow is named React CI/CD Pipeline. It runs on pushes to the `main` branch and uses an Ubuntu runner.
+This workflow is named React CI/CD Pipeline and runs on pushes to `main`.
 
-Point to the `build` job.
+It has three separate jobs: build, test, and deploy.
 
-Say:
+The build job installs dependencies and runs `npm run build`.
 
-The build job checks out the repository, sets up Node.js 24, installs dependencies with `npm ci`, and runs `npm run build`.
+The test job uses `needs: build`, so tests only run after the build succeeds.
 
-Point to the `test` job and the `needs: build` line.
+The deploy job uses `needs: test`, so Vercel deployment only runs after both build and test pass.
 
-Say:
-
-The test job is separate from the build job and depends on it with `needs: build`. It installs dependencies and runs all Jest tests with `npm test`.
-
-Point to the `deploy` job and the `needs: test` line.
+Where to be on screen: Switch to the latest successful GitHub Actions run.
 
 Say:
 
-The deploy job depends on the test job with `needs: test`, so deployment is blocked unless both the build and test jobs succeed.
+Here is the successful workflow run showing the pipeline completed in order.
 
-Point to the Vercel commands.
+## 6. Secrets And Live Deployment
 
-Say:
+Time target: 25 seconds.
 
-The deploy job installs the Vercel CLI, pulls the production Vercel configuration, builds the Vercel production artifact, and deploys the prebuilt output.
-
-Where to be on screen: Switch to the GitHub Actions page for the latest workflow run.
+Where to be on screen: In `README.md`, show the required secrets section. Do not reveal secret values.
 
 Say:
 
-Here is the latest GitHub Actions run. The build job passed first, the test job passed second, and the deploy job passed after both of them. This confirms that the app was only deployed after a successful build and test run.
-
-## 7. Secrets And Deployment
-
-Where to be on screen: In `README.md`, show the Required GitHub/Vercel Secrets section. You can also show GitHub repository Settings, then Secrets and variables, then Actions, but do not reveal secret values.
-
-Say:
-
-The deploy job uses GitHub repository secrets for Vercel. The required secret names are `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`. No actual secret values are placed in the source code or workflow file.
-
-Where to be on screen: Show the Live Vercel URL section in `README.md`.
-
-Say:
-
-The README includes the live Vercel URL because deployment has completed successfully.
+Deployment uses GitHub repository secrets named `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`. The secret values are not committed to the source code.
 
 Where to be on screen: Switch to `https://ci-cd-pipeline-react.vercel.app`.
 
 Say:
 
-This is the deployed Vercel version of the application at `https://ci-cd-pipeline-react.vercel.app`.
+This is the live Vercel deployment of the app.
 
-## 8. Closing
+## 7. Closing
 
-Where to be on screen: Return to the running local app or the README.
+Time target: 10 seconds.
+
+Where to be on screen: Return to the local app or README.
 
 Say:
 
-This project meets the assignment requirements by preserving the existing React app, confirming the local tests and production build, adding meaningful unit and integration test coverage, documenting the project, and creating a GitHub Actions pipeline with separate build, test, and deploy jobs for Vercel.
+This project meets the requirements by preserving the React app, adding meaningful tests, confirming the build, documenting the setup, and deploying through a GitHub Actions CI/CD pipeline.
 
-Thank you for watching my project presentation.
+Thank you for watching.
+
+## If You Are Running Long
+
+Skip these details first:
+
+- Do not describe each test file separately. Say the single combined test sentence from section 3.
+- Do not read the README text. Just show it.
+- Do not explain every Vercel command. Just say deployment happens after build and test pass.
+- Do not click through GitHub settings unless needed. Show the secret names in the README instead.
 
 ## Quick Recording Checklist
 
-- Start in `C:\Users\bmcga\OneDrive\Desktop\CI_CD_Pipeline_React`.
 - Show VS Code opened at the project root.
-- Show `README.md`.
 - Show the local app in the browser.
-- Demonstrate clicking `Add to Cart`.
-- Show `package.json` test and build scripts.
-- Show `ProductCard.test.jsx`.
-- Show `Cart.test.jsx`.
-- Show `App.test.jsx`.
-- Run `npm test` from the project root.
-- Run `npm run build` from the project root.
+- Demonstrate `Add to Cart` twice.
+- Show `package.json` test script.
+- Show the three test files quickly.
+- Run `npm test`.
+- Run `npm run build`.
 - Show `.github/workflows/main.yml`.
-- Point out `needs: build` in the test job.
-- Point out `needs: test` in the deploy job.
-- Show the required secret names without showing real secret values.
-- Show the latest successful GitHub Actions run.
-- Show the deployed Vercel URL: `https://ci-cd-pipeline-react.vercel.app`.
+- Point out `needs: build` and `needs: test`.
+- Show the successful GitHub Actions run.
+- Show required Vercel secret names without showing real values.
+- Show the live Vercel URL: `https://ci-cd-pipeline-react.vercel.app`.
